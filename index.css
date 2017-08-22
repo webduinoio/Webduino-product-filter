@@ -12,62 +12,67 @@ div{
 
 h1 {
   width: 100%;
-  height: 100px;
+  height: 80px;
   margin: 0;
-  background: #055;
+  background: #333;
   color: #fff;
   text-align: center;
-  line-height: 100px;
-  font-size: 26px;
+  line-height: 80px;
+  font-size: 24px;
 }
 
 h3 {
-  border-top: 1px solid #eee;
+  border-bottom: 2px solid #eee;
   margin:0;
   width:100%;
   height:50px;
   line-height: 50px;
-  background:#fd6;
   text-align: center;
-  border-radius:10px;
   font-size:18px;
 }
 
 .filter, .result{
-  width:calc(50% - 2px);
   height:calc(100% - 140px);
+  width:calc(50% - 2px);
   float:left;
-  margin:20px 0;
+  margin:30px 0 20px;
   padding:10px 30px 30px;
+  // display:inline-block;
+  // width:100%;
+}
+
+.filter{
+  text-align: center;
 }
 
 .filter .group {
+  //display:inline-block;
+  display:block;
   margin: 20px 0;
   text-align: center;
+  width:100%;
+  vertical-align: top;
 }
 
 .filter .group label{
   display:inline-block;
-  width:15px;
-  height:15px;
-  border:1px solid #aaa;
+  background:#666;
+  color:#fff;
+  padding:5px 15px;
+  cursor: pointer;
+  border-radius:20px;
+  margin:0; 
   user-select: none;
-  margin:-2px 3px 0 0;
-  padding:0;
-  cursor:pointer;
-  vertical-align: middle;
-  border-radius:3px;
+  font-size:14px;
 }
 
 .filter .group label.checked{
-  background-image:url(checked.jpg);
-  background-size:cover;
-  border:1px solid #f4ac3c;
+  background:#f55;
 }
 
 .filter .group div{
   display:inline-block;
-  margin:0 5px 10px;
+  margin:0 2px 15px;
 }
 
 .filter .group input{
@@ -79,8 +84,9 @@ h3 {
 }
 
 .result h3{
-  background:#08a;
-  color:#fff;
+  font-size:20px;
+  display:block;
+  border-bottom:2px solid #eee;  
 }
 
 .result .box {
@@ -148,7 +154,7 @@ h3 {
 
 .result .a.a1.s1::before,
 .result .a.a1.s1.s2::before {
-  content: '符合';
+  content: '參考';
   background: #9f9;
   color: #050;
 }
@@ -161,7 +167,7 @@ h3 {
 
 .result .a.a2.s1::before,
 .result .a.a1.s2::before {
-  content: '參考';
+  content: '符合';
   background: #fd0;
   color: #e00;
 }

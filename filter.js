@@ -14,7 +14,12 @@ $(function() {
     '智慧生活': ['馬克一號', 'Smart', 'Webduino Fly'],
     '玩具改造': ['馬克一號', 'Smart'],
     '物聯網開發': ['馬克一號', 'Smart', 'Webduino Fly'],
-    'APP 開發': ['馬克一號', 'Smart']
+    'APP 開發': ['馬克一號', 'Smart'],
+    '基礎體驗課':['Smart','Smart','Smart','Smart','Smart'],
+    '進階開發班':['馬克一號', 'Smart','馬克一號', 'Smart','馬克一號', 'Smart','馬克一號', 'Smart','馬克一號', 'Smart'],
+    '智慧植栽入門':['Smart','Smart','Smart','Smart','Smart'],
+    '智慧插座入門':['馬克一號','馬克一號','馬克一號','馬克一號','馬克一號'],
+    '智慧插座進階':['馬克一號', 'Smart', 'Webduino Fly','馬克一號', 'Smart', 'Webduino Fly','馬克一號', 'Smart', 'Webduino Fly','馬克一號', 'Smart', 'Webduino Fly','馬克一號', 'Smart', 'Webduino Fly']
   };
   var data2 = {
     '國小': ['基本包', 'Dr.Smart', '公仔自走車', '公仔自走車循跡套件', '基礎套件包'],
@@ -31,7 +36,12 @@ $(function() {
     '智慧生活': ['智慧插座實戰開發包', '智慧植栽', '豪華套件包'],
     '玩具改造': ['公仔自走車', '公仔自走車循跡套件', '進階套件包'],
     '物聯網開發': ['智慧插座實戰開發包', '智慧植栽', '智慧插座', '智慧插座擴充', '豪華套件包'],
-    'APP 開發': ['基本包', 'Dr.Smart']
+    'APP 開發': ['基本包', 'Dr.Smart'],
+    '基礎體驗課':['Dr.Smart','Dr.Smart','Dr.Smart','Dr.Smart','Dr.Smart'],
+    '進階開發班':['豪華套件包','豪華套件包','豪華套件包','豪華套件包','豪華套件包'],
+    '智慧植栽入門':['智慧植栽','智慧植栽','智慧植栽','智慧植栽','智慧植栽'],
+    '智慧插座入門':['智慧插座','基礎套件包','智慧插座','基礎套件包','智慧插座','基礎套件包','智慧插座','基礎套件包','智慧插座','基礎套件包'],
+    '智慧插座進階':['智慧插座實戰開發包','智慧插座實戰開發包','智慧插座實戰開發包','智慧插座實戰開發包','智慧插座實戰開發包']
   };
   var data3 = {
     '國小': ['Blockly', '模擬器'],
@@ -48,7 +58,12 @@ $(function() {
     '智慧生活': ['Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)'],
     '玩具改造': ['Blockly (註冊版)', '裝置管理 (註冊版)', 'HyProto'],
     '物聯網開發': ['Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)'],
-    'APP 開發': ['Blockly', 'HyProto (註冊版)', 'Node-RED (註冊版)']
+    'APP 開發': ['Blockly', 'HyProto (註冊版)', 'Node-RED (註冊版)'],
+    '基礎體驗課':['Blockly', '模擬器','Blockly', '模擬器','Blockly', '模擬器','Blockly', '模擬器','Blockly', '模擬器'],
+    '進階開發班':['Blockly (註冊版)', '裝置管理 (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)'],
+    '智慧植栽入門':['Blockly','Blockly','Blockly','Blockly','Blockly'],
+    '智慧插座入門':['Blockly','Blockly','Blockly','Blockly','Blockly'],
+    '智慧插座進階':['Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)','Blockly (註冊版)', '裝置管理 (註冊版)', 'Node-RED (註冊版)']
   };
   var link = {
     '馬克一號': 'https://webduino.io/buy/component-webduino-v1.html',
@@ -74,7 +89,7 @@ $(function() {
   var $checkBox = $('.checkbox');
   var $label = $('label');
 
-  $label.on('click',function() {
+  $label.on('click', function() {
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
     } else {
@@ -164,13 +179,28 @@ $(function() {
         resultArr3[counts3[j]] = [j];
       }
     }
+    var aa1 = [];
+    for (var k in resultArr) {
+      aa1.push(k * 1);
+    }
+    max1 = aa1.reverse()[0];
+    var aa2 = [];
+    for (var k in resultArr2) {
+      aa2.push(k * 1);
+    }
+    max2 = aa2.reverse()[0];
+    var aa3 = [];
+    for (var k in resultArr3) {
+      aa3.push(k * 1);
+    }
+    max3 = aa3.reverse()[0];
 
     // 依據出現結果的次數，產生對應的推薦結果
     for (var k in resultArr) {
       resultArr[k].forEach(function(item) {
-        if (k > 3) {
+        if (k == max1) {
           $('.box1 .a3').append('<a href="#">' + item + '</a>');
-        } else if (k == 3 || k == 2) {
+        } else if (k < max1 && k > 2) {
           $('.box1 .a2').append('<a href="#">' + item + '</a>');
         } else {
           $('.box1 .a1').append('<a href="#">' + item + '</a>');
@@ -179,9 +209,9 @@ $(function() {
     }
     for (var k in resultArr2) {
       resultArr2[k].forEach(function(item) {
-        if (k > 3) {
+        if (k == max2) {
           $('.box2 .a3').append('<a href="#">' + item + '</a>');
-        } else if (k == 3 || k == 2) {
+        } else if (k < max2 && k > 2) {
           $('.box2 .a2').append('<a href="#">' + item + '</a>');
         } else {
           $('.box2 .a1').append('<a href="#">' + item + '</a>');
@@ -190,9 +220,9 @@ $(function() {
     }
     for (var k in resultArr3) {
       resultArr3[k].forEach(function(item) {
-        if (k > 3) {
+        if (k == max3) {
           $('.box3 .a3').append('<a href="#">' + item + '</a>');
-        } else if (k == 3 || k == 2) {
+        } else if (k < max3 && k > 2) {
           $('.box3 .a2').append('<a href="#">' + item + '</a>');
         } else {
           $('.box3 .a1').append('<a href="#">' + item + '</a>');
